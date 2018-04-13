@@ -31,9 +31,6 @@ The search page has a text input that may be used to find books. As the value of
 <img src="screenshots/Search_Books.png" width="700">
 
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
 ## Table of Contents
 
 - [Getting Started](#getting-started)
