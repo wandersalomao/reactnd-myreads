@@ -25,7 +25,7 @@ class SearchBooks extends Component {
     /**
      * Performs the book search using the input provided by the user 
      * 
-     * @param {*} query - The query string containing the search input 
+     * @param {string} query - The query string containing the search input 
      */
     updateQuery(query) {
         this.setState(() => ({
@@ -58,7 +58,7 @@ class SearchBooks extends Component {
      * we need to sync it with the books currently on the shelves. If the book is not assigned to any shelf, the option 
      * 'None' should be selected by default. 
      * 
-     * @param {*} searchResults - The list of books returned by the search 
+     * @param {Array} searchResults - The list of books returned by the search 
      */
     synchronizeListOfBooks(searchResults) {
         searchResults.forEach(result => {

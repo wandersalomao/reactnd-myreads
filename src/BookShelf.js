@@ -5,10 +5,10 @@ import Book from './Book'
 class BookShelf extends Component {
 
     // Definition of the current BookShelf options
-    static CURRENTLY_READING = { key: 'currentlyReading', name: 'Currently Reading'}
-    static WANT_TO_READ = { key: 'wantToRead', name: 'Want to Read'}
-    static READ = { key: 'read', name: 'Read'}
-    static NONE = { key: 'none', name: 'None'}
+    static CURRENTLY_READING = { key: 'currentlyReading', name: 'Currently Reading', icon: 'fab fa-readme'}
+    static WANT_TO_READ = { key: 'wantToRead', name: 'Want to Read', icon: 'fas fa-list'}
+    static READ = { key: 'read', name: 'Read', icon: 'fas fa-book'}
+    static NONE = { key: 'none', name: 'None', icon: ''}
 
     static propTypes = {
         shelf: PropTypes.shape({

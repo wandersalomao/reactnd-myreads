@@ -13,7 +13,7 @@ class Book extends Component {
      * Called when the user selects a new shelf for the current book. It delegates to the 
      * onUpdateBookShelf function the responsibility of updating the book shelf. 
      * 
-     * @param {*} newShelf - the new shelf the current book should be assigned to
+     * @param {string} newShelf - the new shelf the current book should be assigned to
      */
     handleChange(newShelf) {
         this.props.onUpdateBookShelf(this.props.book, newShelf)
