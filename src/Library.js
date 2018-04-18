@@ -83,7 +83,7 @@ class Library extends Component {
                     </div>
                 </div>
                 <div className="open-search">
-                    <Link to='/search' className='add-contact'>Add a Book</Link>
+                    <Link to='/search'>Add a Book</Link>
                 </div>
             </div>
         )

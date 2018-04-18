@@ -23,7 +23,7 @@ class BookShelf extends Component {
         const { shelf, books, onUpdateBookShelf } = this.props
 
         return (
-            <div className="bookshelf">
+            <div className="bookshelf" id={shelf.key}>
                 <h2 className="bookshelf-title">{shelf.name}</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
