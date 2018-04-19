@@ -19,7 +19,8 @@ class SearchBooks extends Component {
 
     state = {
         query: '', // the query used by the user to search for books 
-        searchResults: [] // the array of books returned by the api
+        searchResults: [], // the array of books returned by the api
+        booksFound: undefined // indicates if books were found 
     }
     
     /**
@@ -34,15 +35,23 @@ class SearchBooks extends Component {
 
         if (query) {
             BooksAPI.search(query).then((searchResults) => {
-                if (!searchResults.error) {
-                    this.synchronizeListOfBooks(searchResults)
-                    this.setState(() => ({
-                        searchResults: searchResults                        
-                    }))
-                } else {
-                    this.setState(() => ({
-                        searchResults: []
-                    }))
+                // ensures that we are not going to replace the contents with an old response. This can happen when multiple 
+                // promises are asynchronously processed                
+                if(query === this.state.query) {
+                    if (!searchResults.error) {
+                        //document.getElementById("alert-message").classList.remove("show")
+                        this.synchronizeListOfBooks(searchResults)
+                        this.setState(() => ({
+                            booksFound: true,
+                            searchResults: searchResults                        
+                        }))
+                    } else {
+                        this.setState(() => ({
+                            booksFound: false,
+                            searchResults: []
+                        }))
+                        //document.getElementById("alert-message").classList.add("show")
+                    }
                 }
             })
         } else {
@@ -68,7 +77,7 @@ class SearchBooks extends Component {
     }
 
     render() {
-        const { query, searchResults } = this.state
+        const { query, searchResults, booksFound } = this.state
         const { onUpdateBookShelf } = this.props
 
         return (
@@ -84,6 +93,7 @@ class SearchBooks extends Component {
                         />
                     </div>
                 </div>
+                { booksFound === false && <div id="alert-message" style={{visibility: 'visible', bottom: '50%'}}>Books not found</div>}
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {searchResults.map((book) => (
